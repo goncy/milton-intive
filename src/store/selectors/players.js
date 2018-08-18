@@ -10,5 +10,5 @@ export const filteredPlayers = createSelector(
         player =>
           name ? player.name.toLowerCase().includes(name.toLowerCase()) : true
       )
-      .filter(player => (age ? player.age === age : true))
+      .filter(player => (age ? player.age == age : true))
 );
