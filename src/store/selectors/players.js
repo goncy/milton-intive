@@ -1,5 +1,7 @@
 import {createSelector} from "reselect";
 
+import {getAge} from "../../utils/date";
+
 export const filteredPlayers = createSelector(
   state => state.filters,
   state => state.players.list,
@@ -10,5 +12,8 @@ export const filteredPlayers = createSelector(
         player =>
           name ? player.name.toLowerCase().includes(name.toLowerCase()) : true
       )
-      .filter(player => (age ? player.age == age : true))
+      .filter(
+        player =>
+          age ? String(getAge(player.dateOfBirth)).includes(String(age)) : true
+      )
 );
